@@ -1,6 +1,10 @@
 🟦 Monitor Inteligente de Conforto Ambiental e Bem-Estar no Trabalho
 Sistema IoT com ESP32 + Sensores + MQTT + Alertas Inteligentes
 
+Grupo: 
+-Mikael de Albuquerque Santana RM 566507
+-Felipe Ramalho Junqueira Berto RM 562148
+
 🔗 Simulação no Wokwi:
 https://wokwi.com/projects/447987905229798401
 
