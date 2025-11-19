@@ -1,0 +1,129 @@
+Explicação Técnica – MQTT e Endpoints HTTP Utilizados
+
+Este documento descreve, de forma objetiva e técnica, como o projeto utiliza MQTT e/ou endpoints HTTP para comunicação entre o dispositivo (ESP32/ESP8266), o sistema de monitoramento e os serviços externos.
+
+1. Comunicação via MQTT
+
+O projeto utiliza o protocolo MQTT (Message Queuing Telemetry Transport) por ser leve, rápido e ideal para dispositivos IoT com recursos limitados. Ele funciona baseado no modelo publish/subscribe, onde um broker central intermedia a troca de mensagens.
+
+1.1 Broker MQTT
+
+No protótipo, foi utilizado o broker público do Wokwi:
+
+wss://mqtt-wokwi.c3.wokwi.com
+Porta: 1883 (ou WebSocket dependendo do ambiente)
+
+
+O dispositivo se conecta ao broker utilizando:
+
+Client ID gerado automaticamente
+
+Conexão via WebSocket (quando no Wokwi)
+
+2. Tópicos MQTT Utilizados
+
+Abaixo estão os tópicos adotados no projeto, cada um com sua função.
+
+2.1 sensor/leituras (publish)
+
+O microcontrolador envia mensagens contendo as leituras de temperatura e umidade.
+
+Exemplo de payload:
+
+{
+  "temperatura": 27.4,
+  "umidade": 63.1,
+  "timestamp": 1732053514
+}
+
+
+Finalidade:
+Permitir que o sistema receba e registre os valores periódicos enviados pelo sensor DHT22.
+
+2.2 sensor/alertas (publish)
+
+Enviado apenas uma vez por ocorrência, quando temperatura ou umidade ultrapassam o limite configurado.
+
+Exemplo de payload:
+
+{
+  "tipo": "temperatura_alta",
+  "valor": 32.8,
+  "limite": 30,
+  "timestamp": 1732053514
+}
+
+
+Finalidade:
+Acionar alertas no sistema sem enviar spam repetitivo.
+O firmware contém lógica interna que impede avisos duplicados até que o valor volte ao normal.
+
+2.3 sensor/config (subscribe)
+
+Permite que o backend envie atualizações ao microcontrolador, como:
+
+Novos limites de temperatura
+
+Novos limites de umidade
+
+Intervalo de leitura
+
+Exemplo de mensagem recebida:
+
+{
+  "limite_temperatura": 30,
+  "limite_umidade": 60
+}
+
+
+Finalidade:
+Atualizar o comportamento do sensor remotamente, sem necessidade de reprogramar o firmware.
+
+3. Comunicação via HTTP (se utilizado)
+
+Caso você opte por complementar com HTTP (opcional no seu projeto), aqui vai a explicação padrão:
+
+3.1 Endpoint: /api/leituras (POST)
+
+Envia as leituras para uma API REST.
+
+Payload:
+
+{
+  "temperatura": 25.9,
+  "umidade": 58.1
+}
+
+3.2 Endpoint: /api/alertas (POST)
+
+Enviado apenas quando ocorre um alerta.
+
+3.3 Endpoint: /api/config (GET)
+
+Busca configurações atualizadas no servidor, caso não use MQTT para isso.
+
+4. Justificativa do Uso de MQTT
+
+O MQTT foi escolhido porque:
+
+É extremamente leve (perfeito para IoT).
+
+Suporta comunicação contínua sem necessidade de requisições HTTP repetidas.
+
+É muito eficiente para notificações em tempo real.
+
+Funciona perfeitamente no simulador Wokwi.
+
+5. Fluxo de Funcionamento (Resumo)
+
+O ESP lê temperatura e umidade.
+
+Envia para o tópico sensor/leituras.
+
+Se um valor estiver fora do limite:
+
+Publica apenas um alerta em sensor/alertas.
+
+Só envia novo alerta quando os valores voltarem ao normal e saírem novamente do limite.
+
+Opcional: recebe configurações novas pelo tópico sensor/confi
