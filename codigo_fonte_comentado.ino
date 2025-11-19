@@ -2,7 +2,6 @@
 //  Projeto: Monitoramento de Temperatura e Umidade via MQTT
 //  Dispositivo: ESP32
 //  Sensor: DHT22
-//  Autor: Felipe
 //  Funções principais:
 //    - Ler temperatura e umidade
 //    - Enviar dados via MQTT
