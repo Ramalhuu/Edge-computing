@@ -6,7 +6,7 @@ Grupo:
 -Felipe Ramalho Junqueira Berto RM 562148
 
 🔗 Simulação no Wokwi:
-https://wokwi.com/projects/447987905229798401
+https://wokwi.com/projects/448102689422482433
 
 🎥 Vídeo Explicativo:
 
