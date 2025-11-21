@@ -111,6 +111,7 @@ Cada evento crítico dispara apenas um alerta, evitando excesso de notificaçõe
 
 🟩 Leituras e alertas no MQTTX
 ![Dashboard MQTT](imagem_2025-11-21_175728420.png)
+![Imagem 2](imagem_2025-11-21_175738745.png)
 
 📌 6. Instruções de Uso
 ✔ Como rodar a simulação no Wokwi:
@@ -204,9 +205,7 @@ Abra o monitor serial para visualizar os logs
 
 📌 8. Link do Vídeo Explicativo
 
-Após gravar sua apresentação, basta adicionar o link aqui:
-
-https://youtu.be/SEU_VIDEO_AQUI
+https://www.youtube.com/watch?v=hYUiJgbN_Xw
 
 📌 9. Considerações Finais
 
