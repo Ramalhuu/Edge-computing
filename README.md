@@ -106,16 +106,11 @@ Cada evento crítico dispara apenas um alerta, evitando excesso de notificaçõe
 
 📌 5. Imagens do Projeto
 
-(Adicione imagens suas reais nesta pasta após exportar)
-
 🟦 Simulação no Wokwi
-![Simulação no Wokwi](imagens/wokwi.png)
+![Simulação no Wokwi](imagem_2025-11-21_175608269.png)
 
-🟩 Leituras e alertas no EMQX
-![Dashboard MQTT](imagens/emqx.png)
-
-🧩 Arquitetura IoT
-![Arquitetura do Sistema](imagens/arquitetura.png)
+🟩 Leituras e alertas no MQTTX
+![Dashboard MQTT](imagem_2025-11-21_175728420.png)
 
 📌 6. Instruções de Uso
 ✔ Como rodar a simulação no Wokwi:
