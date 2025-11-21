@@ -4,11 +4,13 @@ Sistema IoT com ESP32 + Sensores + MQTT + Alertas Inteligentes
 Grupo: 
 -Mikael de Albuquerque Santana RM 566507
 -Felipe Ramalho Junqueira Berto RM 562148
+-Otávio Magno RM 566149
 
 🔗 Simulação no Wokwi:
 https://wokwi.com/projects/448102689422482433
 
 🎥 Vídeo Explicativo:
+https://www.youtube.com/watch?v=hYUiJgbN_Xw
 
 📌 1. Descrição do Problema
 
